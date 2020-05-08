@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ListViewXamarin"
+             xmlns:sync="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             x:Class="ListViewXamarin.MainPage" Padding="{OnPlatform iOS='0,40,0,0'}">
+
+    <ContentPage.BindingContext>
+        <local:GalleryViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <sync:SfListView x:Name="listView" ItemsSource="{Binding Items}" ItemSpacing="1" SelectionMode="None" BackgroundColor="#F0F0F0" ItemSize="100">
+                <sync:SfListView.Behaviors>
+                    <local:Behavior/>
+                </sync:SfListView.Behaviors>
+                <sync:SfListView.ItemTemplate>
+                    <DataTemplate x:Name="ItemTemplate">
+                    <Frame OutlineColor="#b3b3b3" Padding="2" HeightRequest="100" WidthRequest="100">
+                        <Image Source="{Binding Image}" HeightRequest="100" WidthRequest="100" Aspect="AspectFit"/>
+                    </Frame>
+                    </DataTemplate>
+                </sync:SfListView.ItemTemplate>
+            </sync:SfListView>
+    </ContentPage.Content>
+</ContentPage>
